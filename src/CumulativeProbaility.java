@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class CumulativeProbaility {
 
 
-    private ArrayList<Double> res = new ArrayList<Double>();
+    private final ArrayList<Double> res = new ArrayList<Double>();
     private double sum =0;
 
 
