@@ -18,7 +18,7 @@ public class Simulation {
         for(int n= 0; n< timesOfSimulatoin;n++)
         {
             for (int i = 0; i < interval.size() - 1; i++) {
-                if (interval.get(i) < randomList.get(n) && interval.get(i + 1) > randomList.get(n)) {
+                if (interval.get(i) <= randomList.get(n) && interval.get(i + 1) >= randomList.get(n)) {
                     double tmp = demand.get(i);
                     simulation.add((int) tmp);
 
@@ -45,8 +45,8 @@ public class Simulation {
         this.randomList = randomList;
     }
 
-    public double getAverage() {
-        return average;
+    public double getAverage(int timeOfSimulation) {
+        return average/timeOfSimulation;
     }
 
     private void setAverage(double average,ArrayList<Integer> simulation , int timesOfSimulatoin) {
