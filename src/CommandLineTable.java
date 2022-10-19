@@ -81,15 +81,12 @@ public class CommandLineTable {
 
     public final  void  clearConsole() throws IOException {
         final String os = System.getProperty("os.name");
-
-        if(os.contains("Windows"))
-        {
-            Runtime.getRuntime().exec("cls");
-        }
-        else
-        {
-            Runtime.getRuntime().exec("clear");
-        }
+        try {
+            if (os.contains("Windows"))
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            else
+                Runtime.getRuntime().exec("clear");
+        } catch (Exception ignored) {}
 
     }
 
